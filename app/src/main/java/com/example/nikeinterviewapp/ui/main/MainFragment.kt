@@ -11,13 +11,13 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
-import com.example.nikeinterviewapp.databinding.ActivityWordsListBinding
 import com.example.nikeinterviewapp.ui.viewmodel.SearchViewModel
 import androidx.appcompat.widget.SearchView
 import com.example.nikeinterviewapp.R
+import com.example.nikeinterviewapp.databinding.WordlistActivityBinding
 
 class MainFragment : Fragment() {
-    private lateinit var binding: ActivityWordsListBinding
+    private lateinit var binding: WordlistActivityBinding
     private lateinit var viewModel: SearchViewModel
     private var errorSnackBar: Snackbar? = null
 

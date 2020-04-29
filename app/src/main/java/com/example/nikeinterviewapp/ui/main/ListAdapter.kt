@@ -1,10 +1,12 @@
 package com.example.nikeinterviewapp.ui.main
 
+import android.provider.UserDictionary
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nikeinterviewapp.R
+import com.example.nikeinterviewapp.databinding.WordItemBinding
 import com.example.nikeinterviewapp.domain.WordListItem
 import com.example.nikeinterviewapp.ui.viewmodel.UrbanDictionaryViewModel
 import java.util.*
@@ -14,7 +16,7 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
     private lateinit var wordList: List<WordListItem>
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding: ItemWordBinding = DataBindingUtil.inflate(
+        val binding: WordItemBinding  = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
             R.layout.word_item,
             parent,
@@ -57,7 +59,7 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
     private var thumbsDownOrderComparator: Comparator<WordListItem> =
         Comparator { wordListItem1, wordListItem2 -> if (wordListItem1.thumbs_down!! > wordListItem2.thumbs_down!!) -1 else if (wordListItem1.thumbs_down === wordListItem2.thumbs_down) 0 else 1 }
 
-    class ViewHolder(private val binding: ItemWordBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(private val binding: WordItemBinding) : RecyclerView.ViewHolder(binding.root) {
         private val viewModel = UrbanDictionaryViewModel()
         fun bind(wordItem: WordListItem) {
             viewModel.bind(wordItem)
