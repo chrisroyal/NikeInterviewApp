@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.nikeinterviewapp.ui.viewmodel.UrbanDictionaryViewModel"/>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            android:id="@+id/post_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:paddingRight="8dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:mutableText="@{viewModel.getWordTitle()}" />
+
+        <ImageView
+            android:id="@+id/thumbs_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:paddingTop="8dp"
+            android:src="@drawable/ic_thumbs_up"
+            app:layout_constraintBottom_toBottomOf="@+id/post_title"
+            app:layout_constraintStart_toEndOf="@+id/post_title"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/thumbs_up_count"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:paddingTop="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/post_title"
+            app:layout_constraintStart_toEndOf="@+id/thumbs_up"
+            app:layout_constraintTop_toTopOf="parent"
+            app:mutableInt="@{viewModel.getThumbsUpCount()}" />
+
+        <ImageView
+            android:id="@+id/thumbs_down"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="64dp"
+            android:layout_marginRight="32dp"
+            android:paddingTop="8dp"
+            android:src="@drawable/ic_thumbs_down"
+            app:layout_constraintBottom_toBottomOf="@+id/post_title"
+            app:layout_constraintEnd_toStartOf="@+id/thumbs_down_count"
+            app:layout_constraintStart_toEndOf="@+id/thumbs_up_count"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/thumbs_down_count"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:paddingTop="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/post_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:mutableInt="@{viewModel.getThumbsDownCount()}" />
+
+        <TextView
+            android:id="@+id/post_body"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/post_title"
+            app:layout_constraintTop_toBottomOf="@+id/post_title"
+            app:mutableText="@{viewModel.getWordDefinition()}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

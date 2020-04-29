@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">NikeInterviewApp</string>
+    <string name="post_error">An error occurred while loading the posts</string>
+    <string name="query_hint">Type your keyword here</string>
+    <string name="retry">Retry</string>
+    <string name="sort_by_thumbs_up_thumbs_down">Sort By Thumbs Up/Thumbs Down:-</string>
+    <string name="thumbs_up">thumbsUp</string>
+    <string name="thumbs_down">thumbsDown</string>
+</resources>
+
