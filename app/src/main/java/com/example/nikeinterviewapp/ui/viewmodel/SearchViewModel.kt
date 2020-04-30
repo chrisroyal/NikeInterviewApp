@@ -76,14 +76,14 @@ class SearchViewModel : MainViewModel() {
     }
 
     private fun onRetrieveWordListSuccess(response: WordResponse) {
-        val wordList: List<WordListItem?> = response.list
+        val wordList: List<WordListItem> = response.list!!
         wordListAdapter.updatePostList(wordList as List<WordListItem>)
 
         WordListView.SUCCESS_STATE.data = response
     }
 
     private fun onSortWordListSuccess(response: WordResponse, thumbsUpOrDown: String) {
-        val wordList: List<WordListItem?> = response.list
+        val wordList: List<WordListItem> = response.list!!
         wordListAdapter.sortWordListByThumbsUpOrDown(
             wordList as List<WordListItem>,
             thumbsUpOrDown

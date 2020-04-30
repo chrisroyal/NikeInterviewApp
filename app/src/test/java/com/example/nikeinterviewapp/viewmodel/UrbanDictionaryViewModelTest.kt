@@ -39,7 +39,7 @@ class UrbanDictionaryViewModelTest {
         MockitoAnnotations.initMocks(this)
         wordListItem = ArrayList<WordListItem>()
         viewModel = SearchViewModel()
-        viewModel!!.getWordListState().observeForever(observer)
+        observer?.let { viewModel!!.getWordListState().observeForever(it) }
         RxAndroidPlugins.setInitMainThreadSchedulerHandler(object :
             Function<Callable<Scheduler?>?, Scheduler> {
             override fun apply(scheduler: Callable<Scheduler?>?): Scheduler {
@@ -50,9 +50,9 @@ class UrbanDictionaryViewModelTest {
 
     @Test
     fun testNull() {
-        Mockito.`when`<Any?>(apiClient.searchWordFromDictionary("test")).thenReturn(null)
-        Assert.assertNotNull(viewModel.getWordListState())
-        Assert.assertTrue(viewModel.getWordListState().hasObservers())
+        Mockito.`when`<Any?>(apiClient?.searchWordFromDictionary("test")).thenReturn(null)
+        Assert.assertNotNull(viewModel?.getWordListState())
+        Assert.assertTrue(viewModel?.getWordListState()!!.hasObservers())
     }
 
     @Test
@@ -60,22 +60,22 @@ class UrbanDictionaryViewModelTest {
         // Mock API response
         Mockito.`when`<Any>(apiClient.searchWordFromDictionary("test"))
             .thenReturn(Observable.just<WordResponse>(WordResponse(wordListItem)))
-        viewModel.loadWordLists("test")
-        Mockito.verify<Observer<WordsListViewState>?>(observer)
-            .onChanged(WordsListViewState.getLOADING_STATE())
-        Mockito.verify<Observer<WordsListViewState>?>(observer)
-            .onChanged(WordsListViewState.getSUCCESS_STATE())
+        viewModel?.loadWordLists("test")
+        Mockito.verify<Observer<WordListView>?>(observer)
+            .onChanged(WordListView.getLOADING_STATE())
+        Mockito.verify<Observer<WordListView>?>(observer)
+            .onChanged(WordListView.getSUCCESS_STATE())
     }
 
     @Test
     fun testFetchDataError() {
         Mockito.`when`<Any>(apiClient.searchWordFromDictionary("test"))
-            .thenReturn(Observable.error<WordsResponse>(Throwable("\"Api Error")))
-        viewModel.loadWordLists("test")
-        Mockito.verify<Observer<WordsListViewState>?>(observer)
-            .onChanged(WordsListViewState.getLOADING_STATE())
-        Mockito.verify<Observer<WordsListViewState>?>(observer)
-            .onChanged(WordsListViewState.getERROR_STATE())
+            .thenReturn(Observable.error<WordResponse>(Throwable("\"Api Error")))
+        viewModel?.loadWordLists("test")
+        Mockito.verify<Observer<WordListView>?>(observer)
+            .onChanged(WordListView.getLOADING_STATE())
+        Mockito.verify<Observer<WordListView>?>(observer)
+            .onChanged(WordListView.getERROR_STATE())
     }
 
     @After

@@ -1,5 +1,5 @@
 package com.example.nikeinterviewapp.domain
 
 data class WordResponse(
-    val list: List<WordListItem?>
+    val list: List<WordListItem>?
 )
