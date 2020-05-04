@@ -1,6 +1,9 @@
 package com.example.nikeinterviewapp.network
 
 object MarkedHeader {
+    /**
+     * A class of constants for headers used for Retrofit Interceptors
+     */
 
     const val HEADER_AUTHORIZATION_HOST_KEY = "x-rapidapi-host"
     const val HEADER_AUTHORIZATION_HOST_VALUE = "mashape-community-urban-dictionary.p.rapidapi.com"

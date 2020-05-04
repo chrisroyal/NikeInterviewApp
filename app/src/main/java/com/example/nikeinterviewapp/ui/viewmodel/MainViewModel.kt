@@ -17,7 +17,7 @@ abstract class MainViewModel : ViewModel() {
     }
 
     /**
-     * Injects the required dependencies
+     * Inject the required dependencies using for Dagger
      */
     private fun inject() {
         when (this) {

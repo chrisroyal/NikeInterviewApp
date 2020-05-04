@@ -13,7 +13,7 @@ interface AppComponent {
 
     /**
      * Injects required dependencies into the specified SearchViewModel.
-     * @param searchViewModel SearchWordInDictionaryViewModel in which to inject the dependencies
+     * @param searchViewModel SearchViewModel in which to inject the dependencies
      */
     fun inject(searchViewModel: SearchViewModel)
 

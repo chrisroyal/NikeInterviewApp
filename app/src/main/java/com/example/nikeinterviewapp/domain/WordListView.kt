@@ -13,6 +13,7 @@ class WordListView private constructor(
     }
 
     companion object {
+        //Used for SearchViewModel Unit Testing
 
         @JvmStatic
         var ERROR_STATE =

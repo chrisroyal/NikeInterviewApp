@@ -13,11 +13,20 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Named
 
+/**
+ * Module for all required dependencies involving the network
+ */
 @Module
 object NetworkModule {
 
     private const val BASE_URL = "https://mashape-community-urban-dictionary.p.rapidapi.com"
     private const val OK_HTTP_CLIENT = "BaseOkHttp3"
+
+    /**
+     * Provides the Dictionary service implementation.
+     * @param retrofit the Retrofit object used to instantiate the service
+     * @return the Dictionary service implementation.
+     */
 
 
     @Provides
